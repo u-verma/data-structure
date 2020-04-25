@@ -11,6 +11,10 @@ public class LinkedList<T> {
     private int size;
     private int mode;
 
+    public int getSize() {
+        return size;
+    }
+
     public void addLast(T data) {
         if (head == null) {
             head = new Node(data, last);
@@ -32,6 +36,12 @@ public class LinkedList<T> {
             head = newNode;
         }
         size++;
+    }
+
+    public void removeFirst(){
+        Node newFirst= head.getNext();
+        head = newFirst;
+        size--;
     }
 
     public T get(int index) {

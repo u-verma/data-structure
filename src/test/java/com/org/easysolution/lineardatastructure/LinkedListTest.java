@@ -33,11 +33,19 @@ class LinkedListTest {
     @Test
     void shouldAddElementAtFirstPosition() {
         underTest.addFirst("FirstData");
-        System.out.println(underTest.toString());
         assertThat(underTest.get(0)).isEqualTo("FirstData");
         assertThat(underTest.get(1)).isEqualTo("TestName1");
         assertThat(underTest.get(2)).isEqualTo("TestName2");
         assertThat(underTest.get(3)).isEqualTo("TestName3");
         assertThrows(RuntimeException.class, () -> underTest.get(4));
+    }
+
+    @Test
+    void shouldRemoveFirstPositionElementFromList() {
+        underTest.removeFirst();
+        assertThat(underTest.get(0)).isEqualTo("TestName2");
+        assertThat(underTest.get(1)).isEqualTo("TestName3");
+        assertThat(underTest.getSize()).isEqualTo(2);
+        assertThrows(RuntimeException.class, () -> underTest.get(3));
     }
 }
