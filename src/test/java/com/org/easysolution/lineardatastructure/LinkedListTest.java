@@ -11,11 +11,11 @@ class LinkedListTest {
     private LinkedList underTest;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         underTest = new LinkedList<String>();
-        underTest.add("TestName1");
-        underTest.add("TestName2");
-        underTest.add("TestName3");
+        underTest.addLast("TestName1");
+        underTest.addLast("TestName2");
+        underTest.addLast("TestName3");
     }
 
     @Test
@@ -26,7 +26,18 @@ class LinkedListTest {
     }
 
     @Test
-    void shouldThrowExceptionIfIndexIsGreaterThanSize(){
+    void shouldThrowExceptionIfIndexIsGreaterThanSize() {
         assertThrows(RuntimeException.class, () -> underTest.get(3));
+    }
+
+    @Test
+    void shouldAddElementAtFirstPosition() {
+        underTest.addFirst("FirstData");
+        System.out.println(underTest.toString());
+        assertThat(underTest.get(0)).isEqualTo("FirstData");
+        assertThat(underTest.get(1)).isEqualTo("TestName1");
+        assertThat(underTest.get(2)).isEqualTo("TestName2");
+        assertThat(underTest.get(3)).isEqualTo("TestName3");
+        assertThrows(RuntimeException.class, () -> underTest.get(4));
     }
 }
