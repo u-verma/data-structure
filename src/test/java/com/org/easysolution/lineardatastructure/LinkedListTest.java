@@ -41,11 +41,17 @@ class LinkedListTest {
     }
 
     @Test
-    void shouldRemoveFirstPositionElementFromList() {
+    void shouldRemoveFirstPositionElementFromList() throws IllegalAccessException {
         underTest.removeFirst();
         assertThat(underTest.get(0)).isEqualTo("TestName2");
         assertThat(underTest.get(1)).isEqualTo("TestName3");
         assertThat(underTest.getSize()).isEqualTo(2);
         assertThrows(RuntimeException.class, () -> underTest.get(3));
+    }
+
+    @Test
+    void shouldThrowExceptionIfTryToRemoveFromEmptyList()  {
+        underTest = new LinkedList();
+        assertThrows(IllegalAccessException.class, () -> underTest.removeFirst());
     }
 }

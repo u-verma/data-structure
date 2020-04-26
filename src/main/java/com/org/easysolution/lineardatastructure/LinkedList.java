@@ -37,17 +37,26 @@ public class LinkedList<T> {
         }
         size++;
     }
-
-    public void removeFirst(){
+    
+    /**
+     * 1. Check if the LinkedList is null.
+     * 2. if null then throws exception.
+     * 3. if present the return the value.
+     * 4. head will become the second Node of original List.
+     */
+    public void removeFirst() throws IllegalAccessException {
+        if(head==null){
+            throw new IllegalAccessException("No Element to remove from the list of size" +  size);
+        }
         Node newFirst= head.getNext();
         head = newFirst;
         size--;
     }
 
     public T get(int index) {
-        Node node = head;
-        Node next = head.next;
         if (index < size) {
+            Node node = head;
+            Node next = head.next;
             for (int i = 0; i < index; i++) {
                 if (i == index || index == 0) {
                     break;
