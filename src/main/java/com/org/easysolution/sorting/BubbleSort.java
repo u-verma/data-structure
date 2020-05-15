@@ -5,10 +5,6 @@ import static com.org.easysolution.util.CommonUtil.swapIndexValue;
 
 public class BubbleSort {
 
-    public static void main(String[] args) {
-        new BubbleSort().sort(new int[]{6, 11, 7, 2, 4, 10, 12, 0, 5, 1, 8, 9, 3});
-    }
-
     public int[] sort(int[] elementsToSort) {
         int length = elementsToSort.length;
         boolean isSwapped;
