@@ -8,9 +8,9 @@ public class BubbleSort {
     public int[] sort(int[] elementsToSort) {
         int length = elementsToSort.length;
         boolean isSwapped;
-        for (int outerIndex = 0; outerIndex < length; outerIndex++) {
+        for (int forwardIndex = 0; forwardIndex < length; forwardIndex++) {
             isSwapped = false;
-            for (int currentIndex = 0; currentIndex < length - 1 - outerIndex; currentIndex++) {
+            for (int currentIndex = 0; currentIndex < length - 1 - forwardIndex; currentIndex++) {
                 if (elementsToSort[currentIndex] > elementsToSort[currentIndex + 1]) {
                     swapIndexValue(elementsToSort, currentIndex, currentIndex + 1);
                     isSwapped = true;
