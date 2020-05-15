@@ -1,4 +1,4 @@
-package com.org.easysolution.lineardatastructure;
+package com.org.easysolution.linear;
 
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
