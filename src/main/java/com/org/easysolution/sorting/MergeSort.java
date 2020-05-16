@@ -4,12 +4,10 @@ import static com.org.easysolution.util.CommonUtil.printElement;
 
 public class MergeSort {
 
-    public static void main(String[] args) {
-        int[] elementsToSort = {11, 6, 7, 2, 10, 4, 5, 0, 12, 1, 8, 9, 3};
-        new MergeSort().mergeSort(elementsToSort);
-    }
-
     public int[] mergeSort(int[] elementsToSort) {
+        if (null == elementsToSort || elementsToSort.length == 0 || elementsToSort.length == 1) {
+            return elementsToSort;
+        }
         int[] temp = new int[elementsToSort.length];
         sort(elementsToSort, 0, elementsToSort.length - 1, temp);
         return elementsToSort;
