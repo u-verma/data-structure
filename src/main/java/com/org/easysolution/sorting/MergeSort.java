@@ -1,63 +1,63 @@
 package com.org.easysolution.sorting;
 
-import java.util.logging.Logger;
-
 import static com.org.easysolution.util.CommonUtil.printElement;
 
 public class MergeSort {
 
-    private static final Logger LOG = Logger.getLogger(MergeSort.class.getName());
-
     public static void main(String[] args) {
         int[] elementsToSort = {11, 6, 7, 2, 10, 4, 5, 0, 12, 1, 8, 9, 3};
-        int[] temp = new int[elementsToSort.length];
-        new MergeSort().sort(elementsToSort, 0, elementsToSort.length - 1, temp);
-
+        new MergeSort().mergeSort(elementsToSort);
     }
 
-    public void sort(int[] elementsToSort, int lowerBound, int upperBound, int[] temp) {
-        if (upperBound <= lowerBound) {
+    public int[] mergeSort(int[] elementsToSort) {
+        int[] temp = new int[elementsToSort.length];
+        sort(elementsToSort, 0, elementsToSort.length - 1, temp);
+        return elementsToSort;
+    }
+
+    private void sort(int[] elementsToSort, int leftStartIndex, int rightEndIndex, int[] temp) {
+        if (rightEndIndex <= leftStartIndex) {
             return;
         }
-        int middleIndex = (lowerBound + upperBound) / 2;
-        sort(elementsToSort, lowerBound, middleIndex, temp);
-        sort(elementsToSort, middleIndex + 1, upperBound, temp);
-        merge(elementsToSort, lowerBound, upperBound, middleIndex, temp);
+        int middleIndex = (leftStartIndex + rightEndIndex) / 2;
+        sort(elementsToSort, leftStartIndex, middleIndex, temp);
+        sort(elementsToSort, middleIndex + 1, rightEndIndex, temp);
+        merge(elementsToSort, leftStartIndex, rightEndIndex, middleIndex, temp);
     }
 
 
-    private int[] merge(int[] elementToSort, int lowerBound, int upperBound, int middleIndex, int[] temp) {
-        int count = lowerBound;
-        int rightArrayStartIndex = middleIndex + 1;
-        int leftArrayStartIndex = lowerBound;
+    private int[] merge(int[] elementToSort, int lowerBoundIndex, int upperBoundIndex, int middleIndex, int[] temp) {
+        int count = lowerBoundIndex;
+        int rightStartIndex = middleIndex + 1;
+        int leftStartIndex = lowerBoundIndex;
 
-        while (leftArrayStartIndex <= middleIndex && rightArrayStartIndex <= upperBound) {
+        while (leftStartIndex <= middleIndex && rightStartIndex <= upperBoundIndex) {
 
-            if (elementToSort[leftArrayStartIndex] < elementToSort[rightArrayStartIndex]) {
-                temp[count] = elementToSort[leftArrayStartIndex];
-                leftArrayStartIndex++;
+            if (elementToSort[leftStartIndex] < elementToSort[rightStartIndex]) {
+                temp[count] = elementToSort[leftStartIndex];
+                leftStartIndex++;
             } else {
-                temp[count] = elementToSort[rightArrayStartIndex];
-                rightArrayStartIndex++;
+                temp[count] = elementToSort[rightStartIndex];
+                rightStartIndex++;
             }
             count++;
         }
 
-        while (leftArrayStartIndex <= middleIndex) {
-            temp[count] = elementToSort[leftArrayStartIndex];
+        while (leftStartIndex <= middleIndex) {
+            temp[count] = elementToSort[leftStartIndex];
             count++;
-            leftArrayStartIndex++;
+            leftStartIndex++;
 
         }
-        while (rightArrayStartIndex <= upperBound) {
-            temp[count] = elementToSort[rightArrayStartIndex];
+        while (rightStartIndex <= upperBoundIndex) {
+            temp[count] = elementToSort[rightStartIndex];
             count++;
-            rightArrayStartIndex++;
+            rightStartIndex++;
         }
 
-        while (lowerBound <= upperBound) {
-            elementToSort[lowerBound] = temp[lowerBound];
-            lowerBound++;
+        while (lowerBoundIndex <= upperBoundIndex) {
+            elementToSort[lowerBoundIndex] = temp[lowerBoundIndex];
+            lowerBoundIndex++;
         }
 
         printElement(elementToSort);
