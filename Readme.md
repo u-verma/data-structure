@@ -1,3 +1,3 @@
 # Merge Sort recursive view
 
-![](images/mergeSort.jpg) 
+![](images/merge-sort.jpg) 
