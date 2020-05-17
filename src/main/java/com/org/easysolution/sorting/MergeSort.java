@@ -57,8 +57,7 @@ public class MergeSort {
             elementToSort[lowerBoundIndex] = temp[lowerBoundIndex];
             lowerBoundIndex++;
         }
-        printElement(temp);
-        //printElement(elementToSort);
+        printElement(elementToSort);
         return elementToSort;
     }
 }
