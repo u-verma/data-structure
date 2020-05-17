@@ -4,22 +4,22 @@ import static com.org.easysolution.util.CommonUtil.printElement;
 
 public class MergeSort {
 
-    public int[] mergeSort(int[] elementsToSort) {
+    public int[] sort(int[] elementsToSort) {
         if (null == elementsToSort || elementsToSort.length == 0 || elementsToSort.length == 1) {
             return elementsToSort;
         }
         int[] temp = new int[elementsToSort.length];
-        sort(elementsToSort, 0, elementsToSort.length - 1, temp);
+        mergeSort(elementsToSort, 0, elementsToSort.length - 1, temp);
         return elementsToSort;
     }
 
-    private void sort(int[] elementsToSort, int leftStartIndex, int rightEndIndex, int[] temp) {
+    private void mergeSort(int[] elementsToSort, int leftStartIndex, int rightEndIndex, int[] temp) {
         if (rightEndIndex <= leftStartIndex) {
             return;
         }
         int middleIndex = (leftStartIndex + rightEndIndex) / 2;
-        sort(elementsToSort, leftStartIndex, middleIndex, temp);
-        sort(elementsToSort, middleIndex + 1, rightEndIndex, temp);
+        mergeSort(elementsToSort, leftStartIndex, middleIndex, temp);
+        mergeSort(elementsToSort, middleIndex + 1, rightEndIndex, temp);
         merge(elementsToSort, leftStartIndex, rightEndIndex, middleIndex, temp);
     }
 
@@ -57,8 +57,8 @@ public class MergeSort {
             elementToSort[lowerBoundIndex] = temp[lowerBoundIndex];
             lowerBoundIndex++;
         }
-
-        printElement(elementToSort);
+        printElement(temp);
+        //printElement(elementToSort);
         return elementToSort;
     }
 }

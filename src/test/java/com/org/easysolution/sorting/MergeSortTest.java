@@ -12,25 +12,25 @@ class MergeSortTest {
 
     @Test
     void shouldSortAnIntegerArray() {
-        int[] result = underTest.mergeSort(unsorted);
+        int[] result = underTest.sort(unsorted);
         assertThat(result).isEqualTo(sorted);
     }
 
     @Test
     void shouldSortSingleElementArray() {
-        int[] result = underTest.mergeSort(new int[]{4});
+        int[] result = underTest.sort(new int[]{4});
         assertThat(result).isEqualTo(new int[]{4});
     }
 
     @Test
     void shouldReturnNULLListForNUll() {
-        int[] result = underTest.mergeSort(null);
+        int[] result = underTest.sort(null);
         assertThat(result).isNull();
     }
 
     @Test
     void shouldReturnEmptyListForEmptyArray() {
-        int[] result = underTest.mergeSort(new int[0]);
+        int[] result = underTest.sort(new int[0]);
         assertThat(result).isNotNull();
         assertThat(result).isEmpty();
     }
