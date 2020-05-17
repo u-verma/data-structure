@@ -9,7 +9,6 @@ public class LinkedList<T> {
     private Node head;
     private Node last;
     private int size;
-    private int mode;
 
     public int getSize() {
         return size;
