@@ -13,14 +13,14 @@ public class MergeSort {
         return elementsToSort;
     }
 
-    private void mergeSort(int[] elementsToSort, int leftStartIndex, int rightEndIndex, int[] temp) {
-        if (rightEndIndex <= leftStartIndex) {
+    private void mergeSort(int[] elementsToSort, int lowerBoundIndex, int upperBoundIndex, int[] temp) {
+        if (upperBoundIndex <= lowerBoundIndex) {
             return;
         }
-        int middleIndex = (leftStartIndex + rightEndIndex) / 2;
-        mergeSort(elementsToSort, leftStartIndex, middleIndex, temp);
-        mergeSort(elementsToSort, middleIndex + 1, rightEndIndex, temp);
-        merge(elementsToSort, leftStartIndex, rightEndIndex, middleIndex, temp);
+        int middleIndex = (lowerBoundIndex + upperBoundIndex) / 2;
+        mergeSort(elementsToSort, lowerBoundIndex, middleIndex, temp);
+        mergeSort(elementsToSort, middleIndex + 1, upperBoundIndex, temp);
+        merge(elementsToSort, lowerBoundIndex, upperBoundIndex, middleIndex, temp);
     }
 
 
