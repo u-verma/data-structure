@@ -12,10 +12,10 @@ public class CommonUtil {
 
     private static final Logger LOG = Logger.getLogger(CommonUtil.class.getName());
 
-    public static void swapIndexValue(int[] unsorted, int currentIndex, int index) {
-        int temp = unsorted[currentIndex];
-        unsorted[currentIndex] = unsorted[index];
-        unsorted[index] = temp;
+    public static void swapIndexValue(int[] intArray, int index1, int index2) {
+        int temp = intArray[index1];
+        intArray[index1] = intArray[index2];
+        intArray[index2] = temp;
     }
 
     public static void printElement(int[] elementsToSort) {
