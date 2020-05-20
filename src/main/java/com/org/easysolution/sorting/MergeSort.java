@@ -25,9 +25,9 @@ public class MergeSort {
 
 
     private int[] merge(int[] elementToSort, int lowerBoundIndex, int upperBoundIndex, int middleIndex, int[] temp) {
-        int count = lowerBoundIndex;
-        int rightStartIndex = middleIndex + 1;
         int leftStartIndex = lowerBoundIndex;
+        int rightStartIndex = middleIndex + 1;
+        int count = lowerBoundIndex;
 
         while (leftStartIndex <= middleIndex && rightStartIndex <= upperBoundIndex) {
 
@@ -45,8 +45,8 @@ public class MergeSort {
             temp[count] = elementToSort[leftStartIndex];
             count++;
             leftStartIndex++;
-
         }
+
         while (rightStartIndex <= upperBoundIndex) {
             temp[count] = elementToSort[rightStartIndex];
             count++;
