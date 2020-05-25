@@ -10,6 +10,15 @@ public class QuickSort {
         new QuickSort().quickSort(unsorted, 0, unsorted.length - 1);
     }
 
+    private void quickSort(int[] elementsToSort, int lowerBoundIndex, int upperBoundIndex) {
+        if (upperBoundIndex <= lowerBoundIndex) {
+            return;
+        }
+        int pivotIndex = partition(elementsToSort, lowerBoundIndex, upperBoundIndex);
+        quickSort(elementsToSort, lowerBoundIndex, pivotIndex - 1);
+        quickSort(elementsToSort, pivotIndex + 1, upperBoundIndex);
+    }
+
     public int partition(int[] elementsToSort, int lowerBoundIndex, int upperBoundIndex) {
         int pivot = elementsToSort[lowerBoundIndex];
         int lastSwapIndex = lowerBoundIndex;
@@ -23,14 +32,5 @@ public class QuickSort {
         swapIndexValue(elementsToSort, lastSwapIndex, lowerBoundIndex);
         printElement(elementsToSort);
         return lastSwapIndex;
-    }
-
-    private void quickSort(int[] elementsToSort, int lowerBoundIndex, int upperBoundIndex) {
-        if (upperBoundIndex <= lowerBoundIndex) {
-            return;
-        }
-        int pivotIndex = partition(elementsToSort, lowerBoundIndex, upperBoundIndex);
-        quickSort(elementsToSort, lowerBoundIndex, pivotIndex - 1);
-        quickSort(elementsToSort, pivotIndex + 1, upperBoundIndex);
     }
 }
