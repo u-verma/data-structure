@@ -11,13 +11,18 @@ public class HeapSort {
 
         HeapSort obj = new HeapSort();
 
-        for (int index = (elements.length / 2) - 1; index >= 0; index--) {
-            obj.heapify(index, elements, elements.length);
+        int size = elements.length;
+        for (int index = (size / 2) - 1; index >= 0; index--) {
+            obj.heapify(index, elements, size);
         }
 
-        for (int index = elements.length - 1; index >= 0; index--) {
-            obj.swap(elements, index, 0);
-            obj.heapify(0, elements, index);
+        int lastIndex = size - 1;
+
+        while (lastIndex >= 0) {
+            obj.swap(elements, lastIndex, 0);
+            lastIndex--;
+            //call heapify with reduced length
+            obj.heapify(0, elements, lastIndex);
         }
 
         printElement(elements);
