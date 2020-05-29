@@ -6,27 +6,28 @@ import static com.org.easysolution.util.CommonUtil.printElement;
 public class HeapSort {
 
     public static void main(String[] args) {
-
         int[] elements = new int[]{15, 1, 4, 6, 9, 30, 3, 5, 0, 7, 8};
-
         HeapSort obj = new HeapSort();
+        obj.heapSort(elements);
+    }
+
+    private int[] heapSort(int[] elements) {
 
         int size = elements.length;
         for (int index = (size / 2) - 1; index >= 0; index--) {
-            obj.heapify(index, elements, size);
+            heapify(index, elements, size);
         }
 
         int lastIndex = size - 1;
 
         while (lastIndex >= 0) {
-            obj.swap(elements, lastIndex, 0);
+            swap(elements, lastIndex, 0);
             lastIndex--;
-            //call heapify with reduced length
-            obj.heapify(0, elements, lastIndex);
+            heapify(0, elements, lastIndex);
         }
 
         printElement(elements);
-
+        return elements;
     }
 
     private void heapify(int rootIndex, int[] elements, int size) {
@@ -34,7 +35,6 @@ public class HeapSort {
         int largestIndex = rootIndex;
         int leftChildIndex = (rootIndex * 2) + 1;
         int rightChildIndex = (rootIndex * 2) + 2;
-
 
         if (leftChildIndex < size && elements[leftChildIndex] > elements[largestIndex]) {
             largestIndex = leftChildIndex;
