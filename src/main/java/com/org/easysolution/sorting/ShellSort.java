@@ -1,7 +1,7 @@
 package com.org.easysolution.sorting;
 
 import static com.org.easysolution.util.CommonUtil.printElement;
-import static com.org.easysolution.util.CommonUtil.swapIndexValue;
+import static com.org.easysolution.util.CommonUtil.swap;
 
 public class ShellSort {
 
@@ -19,7 +19,7 @@ public class ShellSort {
                 if (swapIndex >= arrayLength) {
                     break;
                 } else if (unsorted[currentIndex] > unsorted[swapIndex]) {
-                    swapIndexValue(unsorted, currentIndex, swapIndex);
+                    swap(unsorted, currentIndex, swapIndex);
                 }
             }
             gapSequence--;

@@ -2,6 +2,7 @@ package com.org.easysolution.sorting;
 
 
 import static com.org.easysolution.util.CommonUtil.printElement;
+import static com.org.easysolution.util.CommonUtil.swap;
 
 public class HeapSort {
 
@@ -50,12 +51,6 @@ public class HeapSort {
                 heapify(largestIndex, elements, size);
             }
         }
-    }
-
-    private void swap(int[] elements, int index1, int index2) {
-        int temp = elements[index1];
-        elements[index1] = elements[index2];
-        elements[index2] = temp;
     }
 
     private boolean isLeafNode(int index, int size) {

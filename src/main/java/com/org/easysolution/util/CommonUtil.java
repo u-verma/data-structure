@@ -12,7 +12,7 @@ public class CommonUtil {
 
     private static final Logger LOG = Logger.getLogger(CommonUtil.class.getName());
 
-    public static void swapIndexValue(int[] intArray, int index1, int index2) {
+    public static void swap(int[] intArray, int index1, int index2) {
         int temp = intArray[index1];
         intArray[index1] = intArray[index2];
         intArray[index2] = temp;

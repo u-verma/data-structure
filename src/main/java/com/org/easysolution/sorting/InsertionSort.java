@@ -1,7 +1,7 @@
 package com.org.easysolution.sorting;
 
 import static com.org.easysolution.util.CommonUtil.printElement;
-import static com.org.easysolution.util.CommonUtil.swapIndexValue;
+import static com.org.easysolution.util.CommonUtil.swap;
 
 public class InsertionSort {
 
@@ -14,7 +14,7 @@ public class InsertionSort {
         for (int forwardIndex = 0; forwardIndex < length-1; forwardIndex++) {
             for (int sortedIndex = forwardIndex + 1; sortedIndex > 0; sortedIndex--) {
                 if (elementsToSort[sortedIndex] < elementsToSort[sortedIndex-1]) {
-                    swapIndexValue(elementsToSort, sortedIndex, sortedIndex-1);
+                    swap(elementsToSort, sortedIndex, sortedIndex-1);
                 }else {
                     break;
                 }

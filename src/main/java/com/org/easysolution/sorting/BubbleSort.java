@@ -1,7 +1,7 @@
 package com.org.easysolution.sorting;
 
 import static com.org.easysolution.util.CommonUtil.printElement;
-import static com.org.easysolution.util.CommonUtil.swapIndexValue;
+import static com.org.easysolution.util.CommonUtil.swap;
 
 public class BubbleSort {
 
@@ -12,7 +12,7 @@ public class BubbleSort {
             isSwapped = false;
             for (int innerIndex = 0; innerIndex < length-1 - outerIndex; innerIndex++) {
                 if (elementsToSort[innerIndex] > elementsToSort[innerIndex + 1]) {
-                    swapIndexValue(elementsToSort, innerIndex, innerIndex + 1);
+                    swap(elementsToSort, innerIndex, innerIndex + 1);
                     isSwapped = true;
                 }
             }

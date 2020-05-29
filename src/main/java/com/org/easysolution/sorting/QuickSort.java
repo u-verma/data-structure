@@ -1,7 +1,7 @@
 package com.org.easysolution.sorting;
 
 import static com.org.easysolution.util.CommonUtil.printElement;
-import static com.org.easysolution.util.CommonUtil.swapIndexValue;
+import static com.org.easysolution.util.CommonUtil.swap;
 
 public class QuickSort {
 
@@ -26,10 +26,10 @@ public class QuickSort {
         for (int currentIndex = lowerBoundIndex + 1; currentIndex <= upperBoundIndex; currentIndex++) {
             if (elementsToSort[currentIndex] < pivot) {
                 lastSwapIndex++;
-                swapIndexValue(elementsToSort, currentIndex, lastSwapIndex);
+                swap(elementsToSort, currentIndex, lastSwapIndex);
             }
         }
-        swapIndexValue(elementsToSort, lastSwapIndex, lowerBoundIndex);
+        swap(elementsToSort, lastSwapIndex, lowerBoundIndex);
         printElement(elementsToSort);
         return lastSwapIndex;
     }
