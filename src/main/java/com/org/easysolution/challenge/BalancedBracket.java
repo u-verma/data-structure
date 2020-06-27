@@ -6,7 +6,7 @@ import java.util.Stack;
 
 public class BalancedBracket {
     public static void main(String[] args) {
-        String sequence = "{{[[(())]]}}{";
+        String sequence = "{{[[(())]]}}{}";
 
         Map bracketPairs = new HashMap<Character, Character>();
         bracketPairs.put(')', '(');

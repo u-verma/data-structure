@@ -15,11 +15,11 @@ public class LinkedList<T> {
     }
 
     public void addLast(T data) {
+        Node newNode = new Node(data);
         if (head == null) {
-            head = new Node(data, last);
+            head = newNode;
             last = head;
         } else {
-            Node newNode = new Node(data, null);
             last.next = newNode;
             this.last = newNode;
         }
@@ -27,54 +27,75 @@ public class LinkedList<T> {
     }
 
     public void addFirst(T data) {
+        Node newNode = new Node(data);
         if (head == null) {
-            head = new Node(data, null);
+            head = new Node(data);
             last = head;
         } else {
-            Node newNode = new Node(data, head);
+            newNode.next = head;
             head = newNode;
         }
         size++;
     }
-    
+
     /**
      * 1. Check if the LinkedList is null.
      * 2. if null then throws exception.
      * 3. if present the return the value.
      * 4. head will become the second Node of original List.
+     *
+     * @return the removed head value
      */
-    public void removeFirst() throws IllegalAccessException {
-        if(head==null){
-            throw new IllegalAccessException("No Element to remove from the list of size" +  size);
+    public T removeFirst() throws IllegalAccessException {
+        if (head == null) {
+            throw new IllegalAccessException("No Elements present to remove from the list of size" + size);
         }
-        Node newFirst= head.getNext();
-        head = newFirst;
+        T data = head.data;
+        Node newHead = head.next;
+        head = newHead;
         size--;
+        return data;
     }
 
-    public T get(int index) {
+    public T get(int index) throws IllegalAccessException {
         if (index < size) {
             Node node = head;
-            Node next = head.next;
-            for (int i = 0; i < index; i++) {
-                if (i == index || index == 0) {
-                    break;
-                } else {
-                    node = next;
-                    next = node.next;
+            if (index == 0) {
+                return head.data;
+            } else if (index == size - 1) {
+                return last.data;
+            } else {
+                while (index != 0) {
+                    node = node.next;
+                    index--;
                 }
             }
-            return node.getData();
+            return node.data;
         } else {
-            throw new ArrayIndexOutOfBoundsException("The Index is greater then size" + size);
+            throw new IllegalAccessException("The Index is greater then size" + size);
         }
     }
 
-    public Node getLastNode(Node node) {
-        if (node.next == null) {
-            return node;
+    public T getkthNodeFromTailPosition(int positionFromTail) throws IllegalAccessException {
+
+        if (head == null || positionFromTail > size - 1) {
+            throw new IllegalAccessException("Invalid index from tail" + size);
         }
-        return getLastNode(node.getNext());
+        Node current = head;
+        Node result = head;
+        int currentIndex = 0;
+        int resultIndex = 0;
+
+        while (currentIndex - resultIndex < positionFromTail) {
+            current = current.next;
+            currentIndex++;
+        }
+
+        while (current.next != null) {
+            current = current.next;
+            result = result.next;
+        }
+        return result.data;
     }
 
     @ToString
@@ -82,17 +103,9 @@ public class LinkedList<T> {
         private T data;
         private Node next;
 
-        public Node(T data, Node next) {
+        public Node(T data) {
             this.data = data;
-            this.next = next;
-        }
-
-        public T getData() {
-            return data;
-        }
-
-        public Node getNext() {
-            return next;
+            this.next = null;
         }
     }
 }
