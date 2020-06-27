@@ -4,10 +4,10 @@ public class LinkedStack<T> {
 
     private Node top = null;
     private int size;
-    private int maxSize = 20;
+    private int maxSize;
 
     public LinkedStack(int maxSize) {
-        this.maxSize = size;
+        this.maxSize = maxSize;
     }
 
     public void push(T data){
@@ -30,6 +30,7 @@ public class LinkedStack<T> {
         }
         T data = top.data;
         top = top.next;
+        size--;
         return data;
     }
 

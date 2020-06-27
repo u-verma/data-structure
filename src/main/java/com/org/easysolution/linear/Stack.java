@@ -13,8 +13,8 @@ public class Stack<T extends Object> {
         dataArray = (T[]) new Object[size];
     }
 
-    public void push(T data){
-        if(isFull()){
+    public void push(T data) {
+        if (isFull()) {
             throw new StackOverflowError("Stack is full");
         }
         top++;
@@ -22,28 +22,26 @@ public class Stack<T extends Object> {
     }
 
     public T pop() throws IllegalAccessException {
-        T value = getValue();
+        if (isEmpty()) {
+            throw new IllegalAccessException("Stack is full");
+        }
+        T value = dataArray[top];
         top--;
         return value;
     }
 
-    public T peek(T data) throws IllegalAccessException {
-        T value = getValue();
-        return value;
-    }
-
-    public boolean isFull(){
-        return top == size-1;
-    }
-
-    public boolean isEmpty(){
-        return top == -1;
-    }
-
-    private T getValue() throws IllegalAccessException {
-        if (isEmpty()) {
-            throw new IllegalAccessException("Stack is full");
+    public T peek(int position) throws IllegalAccessException {
+        if (isEmpty() || position >= size) {
+            throw new IllegalAccessException("The position is greater than size");
         }
-        return dataArray[top];
+        return dataArray[top - position];
+    }
+
+    public boolean isFull() {
+        return top == size - 1;
+    }
+
+    public boolean isEmpty() {
+        return top == -1;
     }
 }
