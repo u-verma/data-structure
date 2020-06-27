@@ -4,7 +4,6 @@ import org.omg.CORBA.Object;
 
 public class Stack<T extends Object> {
 
-    private T data;
     private int size;
     private int top = -1;
     private T[] dataArray;
