@@ -51,8 +51,7 @@ public class LinkedList<T> {
             throw new IllegalAccessException("No Elements present to remove from the list of size" + size);
         }
         T data = head.data;
-        Node newHead = head.next;
-        head = newHead;
+        head = head.next;
         size--;
         return data;
     }
