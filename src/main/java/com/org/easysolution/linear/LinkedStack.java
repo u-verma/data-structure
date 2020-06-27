@@ -15,12 +15,10 @@ public class LinkedStack<T> {
             throw new StackOverflowError("stack is full");
         }
         Node node = new Node(data);
-        if(top == null){
-           top = node;
-        }else{
+        if (top != null) {
             node.next = top;
-            top = node;
         }
+        top = node;
         size++;
     }
 
@@ -34,6 +32,17 @@ public class LinkedStack<T> {
         return data;
     }
 
+    public T peek(int position) throws IllegalAccessException {
+        if(isEmpty() || position >= size){
+            throw new IllegalAccessException("stack is empty or out of bound");
+        }
+        Node node = top;
+        while(position>0){
+            node = node.next;
+            position--;
+        }
+        return node.data;
+    }
 
     public boolean isEmpty() {
         return top == null;
