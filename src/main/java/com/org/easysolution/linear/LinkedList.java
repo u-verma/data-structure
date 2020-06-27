@@ -99,6 +99,7 @@ public class LinkedList<T> {
     }
 
     @ToString
+    @EqualsAndHashCode
     private final class Node {
         private T data;
         private Node next;
