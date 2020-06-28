@@ -14,6 +14,7 @@ public class CircularQueue<T> {
     public void enqueue(T data) {
         if (isFull()) {
             System.out.println("Queue is full");
+            return;
         }
         rarePointer = (rarePointer + 1) % size;
         dataArray[rarePointer] = data;
@@ -22,6 +23,7 @@ public class CircularQueue<T> {
     public T dequeue() {
         if (isEmpty()) {
             System.out.println("Queue is empty");
+            return null;
         }
         frontPointer = (frontPointer + 1) % size;
         return dataArray[frontPointer];
@@ -31,6 +33,7 @@ public class CircularQueue<T> {
 
         if (isEmpty()) {
             System.out.println("Queue is empty");
+            return;
         }
         int index = frontPointer + 1;
 
@@ -52,7 +55,7 @@ public class CircularQueue<T> {
         return ((rarePointer + 1) % size) == (frontPointer % size);
     }
 
-    public static void main(String[] args) throws IllegalAccessException {
+    public static void main(String[] args) {
 
         CircularQueue queue = new CircularQueue<Integer>(6);
 
