@@ -6,11 +6,11 @@ import static com.org.easysolution.util.CommonUtil.swap;
 public class BubbleSort {
 
     public int[] sort(int[] elementsToSort) {
-        int length = elementsToSort.length;
+        int size = elementsToSort.length;
         boolean isSwapped;
-        for (int outerIndex = 0; outerIndex < length; outerIndex++) {
+        for (int outerIndex = 0; outerIndex < size; outerIndex++) {
             isSwapped = false;
-            for (int innerIndex = 0; innerIndex < length-1 - outerIndex; innerIndex++) {
+            for (int innerIndex = 0; innerIndex < size-1 - outerIndex; innerIndex++) {
                 if (elementsToSort[innerIndex] > elementsToSort[innerIndex + 1]) {
                     swap(elementsToSort, innerIndex, innerIndex + 1);
                     isSwapped = true;

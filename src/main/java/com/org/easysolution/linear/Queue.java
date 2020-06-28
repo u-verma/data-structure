@@ -17,8 +17,8 @@ public class Queue<T> {
         if (isFull()) {
             throw new IllegalAccessException("queue is full");
         } else {
-            frontPointer++;
-            dataArray[frontPointer] = data;
+            rarePointer++;
+            dataArray[rarePointer] = data;
         }
     }
 
@@ -27,17 +27,17 @@ public class Queue<T> {
         if (isEmpty()) {
             throw new IllegalAccessException("Queue is empty");
         } else {
-            rarePointer++;
-            value = dataArray[rarePointer];
+            frontPointer++;
+            value = dataArray[frontPointer];
         }
         return value;
     }
 
     public boolean isEmpty() {
-        return rarePointer == frontPointer;
+        return frontPointer == rarePointer;
     }
 
     public boolean isFull() {
-        return frontPointer == size - 1;
+        return rarePointer == size - 1;
     }
 }
