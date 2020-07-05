@@ -12,17 +12,16 @@ public class SortPractice {
 
     private void heapSort(int[] elements) {
 
-        int size = elements.length-1;
-
-        for (int rootIndex = size / 2 - 1;  rootIndex >=0; rootIndex--) {
+        int size = elements.length - 1;
+        for (int rootIndex = (size / 2) - 1; rootIndex >= 0; rootIndex--) {
             heapify(elements, rootIndex, size);
         }
+        printElement(elements);
 
-        while(size >= 0){
+        while (size >= 0) {
             swap(elements, 0, size);
             heapify(elements, 0, --size);
         }
-
         printElement(elements);
     }
 

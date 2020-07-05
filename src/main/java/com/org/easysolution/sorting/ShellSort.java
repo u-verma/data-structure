@@ -10,20 +10,22 @@ public class ShellSort {
         new ShellSort().sort(unsorted);
     }
 
-    private void sort(int[] unsorted) {
-        int arrayLength = unsorted.length;
-        int gapSequence = 4;
+    private void sort(int[] elements) {
+        int size = elements.length;
+        int gapSequence = nextGap(size);
         while (gapSequence > 0) {
-            for (int currentIndex = 0; currentIndex < arrayLength; currentIndex++) {
-                int swapIndex = currentIndex + gapSequence;
-                if (swapIndex >= arrayLength) {
-                    break;
-                } else if (unsorted[currentIndex] > unsorted[swapIndex]) {
-                    swap(unsorted, currentIndex, swapIndex);
+            for (int currentIndex = 0; currentIndex + gapSequence < size; currentIndex++) {
+                if (elements[currentIndex] > elements[currentIndex + gapSequence]) {
+                    swap(elements, currentIndex, currentIndex + gapSequence);
                 }
+                printElement(elements);
             }
-            gapSequence--;
+            gapSequence = nextGap(gapSequence);
         }
-        printElement(unsorted);
+        printElement(elements);
+    }
+
+    private int nextGap(int gap) {
+        return gap <= 1 ? 0 : ((gap / 2) + (gap % 2));
     }
 }
