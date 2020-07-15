@@ -23,8 +23,7 @@ public class HeapSort {
 
         while (lastIndex >= 0) {
             swap(elements, lastIndex, 0);
-            lastIndex--;
-            heapify(0, elements, lastIndex);
+            heapify(0, elements, lastIndex--);
         }
 
         printElement(elements);

@@ -26,6 +26,6 @@ public class ShellSort {
     }
 
     private int nextGap(int gap) {
-        return gap <= 1 ? 0 : ((gap / 2) + (gap % 2));
+        return gap <= 1 ? 0 : ((gap / 2) + (2*gap % 2) ) - (gap % 2);
     }
 }
