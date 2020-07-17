@@ -12,7 +12,7 @@ public class ShellSort {
 
     private void sort(int[] elements) {
         int size = elements.length;
-        int gapSequence = nextGap(size);
+        int gapSequence = 4;
         while (gapSequence > 0) {
             for (int currentIndex = 0; currentIndex + gapSequence < size; currentIndex++) {
                 if (elements[currentIndex] > elements[currentIndex + gapSequence]) {
@@ -20,12 +20,8 @@ public class ShellSort {
                 }
                 printElement(elements);
             }
-            gapSequence = nextGap(gapSequence);
+            gapSequence--;
         }
         printElement(elements);
-    }
-
-    private int nextGap(int gap) {
-        return gap <= 1 ? 0 : ((gap / 2) + (2*gap % 2) ) - (gap % 2);
     }
 }
